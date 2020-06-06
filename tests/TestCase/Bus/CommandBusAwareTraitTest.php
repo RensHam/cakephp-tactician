@@ -25,15 +25,15 @@
 
 namespace Robotusers\Tactician\Test;
 
+use Cake\TestSuite\TestCase;
 use Robotusers\Commander\CommandBusInterface;
 use Robotusers\Tactician\Bus\CommandBusAwareTrait;
-use Robotusers\Tactician\Test\TestCase\Php71TestCase;
 use stdClass;
 
 /**
  * @author Robert Pustułka <r.pustulka@robotusers.com>
  */
-class CommandBusAwareTraitTest extends Php71TestCase
+class CommandBusAwareTraitTest extends TestCase
 {
 
     public function testHandleCommand()

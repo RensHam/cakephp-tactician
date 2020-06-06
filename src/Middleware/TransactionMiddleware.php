@@ -96,7 +96,7 @@ class TransactionMiddleware implements Middleware
      *
      * @return $this
      */
-    public function addAll()
+    public function addAll(): self
     {
         $this->all = true;
 
@@ -109,7 +109,7 @@ class TransactionMiddleware implements Middleware
      * @param string $name Command class name.
      * @return $this
      */
-    public function addCommand($name)
+    public function addCommand(string $name): self
     {
         $class = $this->resolveClassName($name);
         $this->commands[] = ltrim($class, '\\');
@@ -123,7 +123,7 @@ class TransactionMiddleware implements Middleware
      * @param string $name Command class name.
      * @return $this
      */
-    public function excludeCommand($name)
+    public function excludeCommand(string $name): self
     {
         $class = $this->resolveClassName($name);
         $this->excluded[] = ltrim($class, '\\');
@@ -137,7 +137,7 @@ class TransactionMiddleware implements Middleware
      * @param string $name Command class name.
      * @return string
      */
-    protected function resolveClassName($name)
+    protected function resolveClassName(string $name): string
     {
         return (string)App::className($name, 'Command', 'Command');
     }
@@ -148,7 +148,7 @@ class TransactionMiddleware implements Middleware
      * @param object $command Command object.
      * @return bool
      */
-    public function needsTransaction($command)
+    public function needsTransaction(object $command): bool
     {
         $class = ltrim(get_class($command), '\\');
 

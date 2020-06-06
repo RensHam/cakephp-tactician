@@ -26,16 +26,16 @@ namespace Robotusers\Tactician\Test\TestCase\Console;
 
 use App\Console\TestCommand;
 use Cake\Console\CommandFactoryInterface;
+use Cake\TestSuite\TestCase;
 use League\Tactician\CommandBus;
 use Robotusers\Commander\CommandBusInterface;
 use Robotusers\Tactician\Console\CommandFactory;
 use Robotusers\Tactician\Core\BusApplicationInterface;
-use Robotusers\Tactician\Test\TestCase\Php71TestCase;
 
 /**
  * @author Robert Pustułka <robert.pustulka@gmail.com>
  */
-class CommandFactoryTest extends Php71TestCase
+class CommandFactoryTest extends TestCase
 {
 
     public function testGetCommandBus()

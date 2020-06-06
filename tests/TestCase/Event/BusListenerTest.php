@@ -26,12 +26,12 @@
 namespace Robotusers\Tactician\Test\TestCase\Event;
 
 use Cake\Event\Event;
+use Cake\TestSuite\TestCase;
 use InvalidArgumentException;
 use League\Tactician\CommandBus;
 use Robotusers\Commander\CommandBusAwareInterface;
 use Robotusers\Commander\CommandBusInterface;
 use Robotusers\Tactician\Event\BusListener;
-use Robotusers\Tactician\Test\TestCase\Php71TestCase;
 use stdClass;
 
 /**
@@ -39,7 +39,7 @@ use stdClass;
  *
  * @author Robert Pustułka <r.pustulka@robotusers.com>
  */
-class BusListenerTest extends Php71TestCase
+class BusListenerTest extends TestCase
 {
 
     public function testCommandBusInterface()
@@ -58,12 +58,10 @@ class BusListenerTest extends Php71TestCase
         $this->assertInstanceOf(CommandBusInterface::class, $listener->getCommandBus());
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Invalid command bus encountered. Expected `Robotusers\Commander\CommandBusInterface` or `League\Tactician\CommandBus`, got `stdClass`.
-     */
     public function testCommandBusInvalid()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage("Invalid command bus encountered. Expected `Robotusers\Commander\CommandBusInterface` or `League\Tactician\CommandBus`, got `stdClass`.");
         $commandBus = new stdClass();
         new BusListener($commandBus);
     }

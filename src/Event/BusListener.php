@@ -81,7 +81,7 @@ class BusListener implements EventListenerInterface
      * @return $this
      * @throws InvalidArgumentException When invalid argument passed.
      */
-    public function setCommandBus($commandBus)
+    public function setCommandBus($commandBus): self
     {
         if (!$commandBus instanceof CommandBusInterface) {
             if (!$commandBus instanceof CommandBus) {
@@ -105,7 +105,7 @@ class BusListener implements EventListenerInterface
      *
      * @return CommandBusInterface
      */
-    public function getCommandBus()
+    public function getCommandBus(): CommandBusInterface
     {
         return $this->commandBus;
     }
@@ -116,7 +116,7 @@ class BusListener implements EventListenerInterface
      * @param Event $event Event instance.
      * @return void
      */
-    public function injectCommandBus(Event $event)
+    public function injectCommandBus(Event $event): void
     {
         $subject = $event->getSubject();
         if ($subject instanceof CommandBusAwareInterface) {
@@ -127,7 +127,7 @@ class BusListener implements EventListenerInterface
     /**
      * {@inheritDoc}
      */
-    public function implementedEvents()
+    public function implementedEvents(): array
     {
         $events = (array)$this->_config['events'];
 

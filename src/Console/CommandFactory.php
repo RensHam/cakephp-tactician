@@ -70,7 +70,7 @@ class CommandFactory implements CommandFactoryInterface
      *
      * @return CommandBusInterface
      */
-    public function getCommandBus()
+    public function getCommandBus(): CommandBusInterface
     {
         if ($this->commandBus === null) {
             $commandBus = $this->app->commandBus();

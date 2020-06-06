@@ -70,7 +70,7 @@ class ConventionsLocator extends ObjectRegistry implements HandlerLocator
     /**
      * {@inheritDoc}
      */
-    public function getHandlerForCommand($commandName)
+    public function getHandlerForCommand($commandName): object
     {
         $name = $this->resolveHandlerName($commandName);
 
@@ -83,7 +83,7 @@ class ConventionsLocator extends ObjectRegistry implements HandlerLocator
      * @param string $commandName Command class name.
      * @return string
      */
-    public function resolveHandlerName($commandName)
+    public function resolveHandlerName(string $commandName): string
     {
         $namespace = $this->_config['commandNamespace'];
 
@@ -110,7 +110,7 @@ class ConventionsLocator extends ObjectRegistry implements HandlerLocator
      * @param string $string Namespace
      * @return string
      */
-    protected function _fixNamespace($string)
+    protected function _fixNamespace(string $string): string
     {
         return str_replace('\\', '/', trim($string, '\\'));
     }
@@ -118,7 +118,7 @@ class ConventionsLocator extends ObjectRegistry implements HandlerLocator
     /**
      * {@inheritDoc}
      */
-    protected function _create($class, $alias, $config)
+    protected function _create($class, string $alias, array $config): object
     {
         return new $class;
     }
@@ -126,7 +126,7 @@ class ConventionsLocator extends ObjectRegistry implements HandlerLocator
     /**
      * {@inheritDoc}
      */
-    protected function _resolveClassName($class)
+    protected function _resolveClassName(string $class): ?string
     {
         return App::className($class, $this->_config['handlerNamespace'], $this->_config['handlerSuffix']);
     }
@@ -134,7 +134,7 @@ class ConventionsLocator extends ObjectRegistry implements HandlerLocator
     /**
      * {@inheritDoc}
      */
-    protected function _throwMissingClassError($class, $plugin)
+    protected function _throwMissingClassError(string $class, ?string $plugin): void
     {
         if ($plugin) {
             $class = "$plugin.$class";

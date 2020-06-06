@@ -45,7 +45,7 @@ class Factory
      * @param array|null $middleware List of middleware.
      * @return CommandBus
      */
-    public static function createCommandBus(array $middleware = null)
+    public static function createCommandBus(array $middleware = null): CommandBus
     {
         if ($middleware === null) {
             $middleware = [
@@ -61,7 +61,7 @@ class Factory
      *
      * @return CommandHandlerMiddleware
      */
-    public static function createCommandHandlerMiddleware()
+    public static function createCommandHandlerMiddleware(): CommandHandlerMiddleware
     {
         $locator = new ConventionsLocator();
         $extractor = new ClassNameExtractor();

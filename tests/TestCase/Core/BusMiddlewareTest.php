@@ -25,20 +25,20 @@
 namespace Robotusers\Tactician\Test\TestCase\Core;
 
 use Cake\Event\EventManager;
+use Cake\TestSuite\TestCase;
 use League\Tactician\CommandBus;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Robotusers\Tactician\Core\BusApplicationInterface;
 use Robotusers\Tactician\Core\BusMiddleware;
 use Robotusers\Tactician\Event\BusListener;
-use Robotusers\Tactician\Test\TestCase\Php71TestCase;
 
 /**
  * Description of BusMiddlewareTest
  *
  * @author Robert Pustułka <r.pustulka@robotusers.com>
  */
-class BusMiddlewareTest extends Php71TestCase
+class BusMiddlewareTest extends TestCase
 {
     public function testInvoke()
     {

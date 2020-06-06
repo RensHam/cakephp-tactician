@@ -26,16 +26,16 @@
 namespace Robotusers\Tactician\Test\TestCase\Bus;
 
 use App\Model\Command\FooCommand;
+use Cake\TestSuite\TestCase;
 use League\Tactician\CommandBus;
 use Robotusers\Tactician\Bus\TacticianAdapter;
-use Robotusers\Tactician\Test\TestCase\Php71TestCase;
 
 /**
  * Description of TacticianAdapter
  *
  * @author Robert Pustułka <r.pustulka@robotusers.com>
  */
-class TacticianAdapterTest extends Php71TestCase
+class TacticianAdapterTest extends TestCase
 {
     public function testHandle()
     {

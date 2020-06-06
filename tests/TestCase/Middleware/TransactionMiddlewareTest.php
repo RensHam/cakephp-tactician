@@ -85,10 +85,10 @@ class TransactionMiddlewareTest extends TestCase
         $connection = $this->createMock(ConnectionInterface::class);
         $connection->expects($this->once())
             ->method('transactional')
-            ->with($this->callback(function ($callable) {
+            ->with($this->callback(function (Callable $callable): bool {
                 $this->assertTrue($callable());
 
-                return $callable;
+                return $callable();
             }))
             ->willReturn(true);
 

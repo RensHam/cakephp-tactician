@@ -84,9 +84,9 @@ class TacticianAdapter extends BaseAdapter
      * Resolves command class name.
      *
      * @param string $name Name,
-     * @return string|bool
+     * @return string
      */
-    protected function resolveClassName($name)
+    protected function resolveClassName(string $name): ?string
     {
         return App::className($name, $this->_config['commandNamespace'], $this->_config['commandSuffix']);
     }

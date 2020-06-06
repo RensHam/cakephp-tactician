@@ -76,7 +76,7 @@ class BusMiddleware
      * @param callable $next Next callback.
      * @return ResponseInterface
      */
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         $commandBus = $this->application->commandBus();
         $listener = new BusListener($commandBus, $this->config);

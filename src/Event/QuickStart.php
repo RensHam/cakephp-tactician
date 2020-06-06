@@ -43,7 +43,7 @@ class QuickStart
      * @param array $config Listener config.
      * @return void
      */
-    public static function setUp($commandBus = null, array $config = [])
+    public static function setUp($commandBus = null, array $config = []): void
     {
         if (!$commandBus) {
             $commandBus = Factory::createCommandBus();
